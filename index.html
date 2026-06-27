@@ -12,6 +12,7 @@ body{
   background:#f5f1ea;
 }
 
+/* HERO */
 .hero{
   background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
   url("https://images.unsplash.com/photo-1509042239860-f550ce710b93") center/cover;
@@ -24,6 +25,7 @@ body{
   font-weight:bold;
 }
 
+/* NAV */
 nav{
   display:flex;
   gap:10px;
@@ -43,17 +45,29 @@ nav button{
   cursor:pointer;
 }
 
-nav button.active{background:#1f1a17;color:white}
+nav button.active{
+  background:#1f1a17;
+  color:white;
+}
 
-.section{display:none;padding:15px}
-.section.active{display:block}
+/* SECTIONS */
+.section{
+  display:none;
+  padding:15px;
+}
 
+.section.active{
+  display:block;
+}
+
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
   gap:12px;
 }
 
+/* CARD */
 .card{
   background:white;
   border-radius:12px;
@@ -77,6 +91,7 @@ nav button.active{background:#1f1a17;color:white}
   font-weight:bold;
 }
 
+/* BOX */
 .box{
   background:white;
   padding:15px;
@@ -91,22 +106,22 @@ nav button.active{background:#1f1a17;color:white}
 <div class="hero">Sauber Café ☕</div>
 
 <nav>
-<button class="tab active" onclick="show('about',this)">About</button>
-<button class="tab" onclick="show('food',this)">Food</button>
-<button class="tab" onclick="show('italian',this)">Italian Soda</button>
-<button class="tab" onclick="show('hot',this)">Hot Beverages</button>
-<button class="tab" onclick="show('iced',this)">Iced Beverages</button>
-<button class="tab" onclick="show('frappe',this)">Frappe</button>
-<button class="tab" onclick="show('smoothie',this)">Smoothies</button>
-<button class="tab" onclick="show('juice',this)">Fresh Juice</button>
-<button class="tab" onclick="show('bev',this)">Beverages</button>
+<button class="active" onclick="show('about',this)">About</button>
+<button onclick="show('food',this)">Food</button>
+<button onclick="show('italian',this)">Italian Soda</button>
+<button onclick="show('hot',this)">Hot</button>
+<button onclick="show('iced',this)">Iced</button>
+<button onclick="show('frappe',this)">Frappe</button>
+<button onclick="show('smoothie',this)">Smoothie</button>
+<button onclick="show('juice',this)">Juice</button>
+<button onclick="show('bev',this)">Drinks</button>
 </nav>
 
 <!-- ABOUT -->
 <div id="about" class="section active">
 <div class="box">
 <h2>Sauber Café</h2>
-<p>Premium café in Phnom Penh ☕🔥</p>
+<p>Premium café vibes in Phnom Penh ☕🔥</p>
 </div>
 
 <div class="box">
@@ -123,25 +138,124 @@ width="100%" height="200" style="border:0;border-radius:12px;"></iframe>
 </div>
 </div>
 
-<!-- FOOD (ONLY YOUR ITEMS) -->
+<!-- FOOD -->
 <div id="food" class="section">
 <div class="grid">
 
 <div class="card"><img src="https://source.unsplash.com/400x300/?spaghetti"><div class="info">Bolognese spaghetti $7.10</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?salmon"><div class="info">Grilled salmon $15.29</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?fish"><div class="info">Fish bite $3.55</div></div>
-<div class="card"><img src="https://source.unsplash.com/400x300/?burger,chicken"><div class="info">Bread chicken burger $3.55</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?burger"><div class="info">Bread chicken burger $3.55</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?fries"><div class="info">French fries $2.37</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?nuggets"><div class="info">Chicken nuggets $3</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?tomato-pasta"><div class="info">Spaghetti tomato sauce $3</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?bacon,avocado"><div class="info">Bacon avocado bread $5.32</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?salad"><div class="info">Avocado smoked salad honey mustard $6.60</div></div>
-<div class="card"><img src="https://source.unsplash.com/400x300/?burger"><div class="info">Grilled chicken burger $3.85</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?burger,chicken"><div class="info">Grilled chicken burger $3.85</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?steak"><div class="info">Grilled tenderloin steak $15.29</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?caesar-salad"><div class="info">Caesar salad $4.75</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?carbonara"><div class="info">Spaghetti carbonara $4.29</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?breakfast"><div class="info">English breakfast $10.65</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?mashed-potato"><div class="info">Banger and mash pepper sauce $6.60</div></div>
 <div class="card"><img src="https://source.unsplash.com/400x300/?duck"><div class="info">Smoked duck breast honey beetroot $5.50</div></div>
-<div class="card"><img src="https://source.unsplash.com/400x300/?potato-cheese"><div class="info">Crispy potatoes ball with cheese $6</div></div>
-<div class="card"><img src="https://source.unsplash.com/400x300/?cheeseburger"><div class="info">Classic cheese burger $7.15<
+<div class="card"><img src="https://source.unsplash.com/400x300/?cheese-balls"><div class="info">Crispy potatoes ball with cheese $6</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?cheeseburger"><div class="info">Classic cheese burger $7.15</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?burger-bacon"><div class="info">Cheese beef bacon burger fries $9.35</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?asian-beef"><div class="info">Australian beef Lok Lak $8.80</div></div>
+
+</div>
+</div>
+
+<!-- ITALIAN SODA -->
+<div id="italian" class="section">
+<div class="grid">
+<div class="card"><img src="https://source.unsplash.com/400x300/?soda"><div class="info">Blue curacao soda $2.75</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?strawberry-soda"><div class="info">Strawberry soda $2.75</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?passion-soda"><div class="info">Passion soda $2.75</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?kiwi-soda"><div class="info">Kiwi soda $2.75</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?blueberry-soda"><div class="info">Blueberry soda $2.75</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?blackberry-soda"><div class="info">Blackberry soda $2.75</div></div>
+</div>
+</div>
+
+<!-- HOT -->
+<div id="hot" class="section">
+<div class="grid">
+<div class="card"><img src="https://source.unsplash.com/400x300/?espresso"><div class="info">Hot espresso $2</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?latte"><div class="info">Hot latte $2.50</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?cappuccino"><div class="info">Hot cappuccino $2.50</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?americano"><div class="info">Hot americano $2.50</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?mocha"><div class="info">Hot mocha $2.50</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?coffee"><div class="info">Hot sauber coffee $2.50</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?vanilla-latte"><div class="info">Hot vanilla latte $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?hot-chocolate"><div class="info">Hot chocolate $2.50</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?milk"><div class="info">Hot fresh milk $3</div></div>
+</div>
+</div>
+
+<!-- ICED -->
+<div id="iced" class="section">
+<div class="grid">
+<div class="card"><img src="https://source.unsplash.com/400x300/?iced-coffee"><div class="info">Iced americano $2.75</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?iced-latte"><div class="info">Iced latte $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?iced-cappuccino"><div class="info">Iced cappuccino $2.75</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?iced-mocha"><div class="info">Iced mocha $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?iced-tea"><div class="info">Honey lemon tea $2</div></div>
+</div>
+</div>
+
+<!-- FRAPPE -->
+<div id="frappe" class="section">
+<div class="grid">
+<div class="card"><img src="https://source.unsplash.com/400x300/?frappe"><div class="info">Coffee frappe $3.25</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?mocha"><div class="info">Mocha frappe $3.25</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?caramel"><div class="info">Caramel frappe $3.25</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?vanilla"><div class="info">Vanilla frappe $3.25</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?chocolate"><div class="info">Chocolate frappe $3.25</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?green-tea"><div class="info">Green tea frappe $3.25</div></div>
+</div>
+</div>
+
+<!-- SMOOTHIE -->
+<div id="smoothie" class="section">
+<div class="grid">
+<div class="card"><img src="https://source.unsplash.com/400x300/?strawberry-smoothie"><div class="info">Vanilla strawberry smoothie $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?banana-smoothie"><div class="info">Banana smoothie $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?strawberry-smoothie"><div class="info">Strawberry smoothie $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?passion-fruit"><div class="info">Passion smoothie $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?mango-smoothie"><div class="info">Mango passion smoothie $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?avocado-smoothie"><div class="info">Avocado smoothie $3</div></div>
+</div>
+</div>
+
+<!-- JUICE -->
+<div id="juice" class="section">
+<div class="grid">
+<div class="card"><img src="https://source.unsplash.com/400x300/?pineapple-juice"><div class="info">Pineapple juice $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?apple-juice"><div class="info">Fresh apple juice $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?watermelon-juice"><div class="info">Fresh watermelon juice $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?carrot-juice"><div class="info">Fresh carrot juice $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?orange-juice"><div class="info">Fresh orange juice $3</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?juice-mix"><div class="info">Mixed carrot + apple juice $3</div></div>
+</div>
+</div>
+
+<!-- BEVERAGES -->
+<div id="bev" class="section">
+<div class="grid">
+<div class="card"><img src="https://source.unsplash.com/400x300/?coke"><div class="info">Coca cola $1.50</div></div>
+<div class="card"><img src="https://source.unsplash.com/400x300/?water"><div class="info">Kulen water $1</div></div>
+</div>
+</div>
+
+<script>
+function show(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
