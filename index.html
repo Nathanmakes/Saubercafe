@@ -74,6 +74,195 @@ nav button.activeTab {
   padding: 15px;
 }
 
+/* CARD GRID */
+.foodgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+/* FOOD CARD */
+.foodcard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.foodcard img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.foodcard .info {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/* ABOUT CARD */
+.card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* CALL */
+.callbtn {
+  display: block;
+  background: green;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">Sauber Café ☕</div>
+
+<header>premium café • phnom penh</header>
+
+<nav>
+<button class="tab activeTab" onclick="go(0, this)">About</button>
+<button class="tab" onclick="go(1, this)">Food</button>
+<button class="tab" onclick="go(2, this)">Frappe</button>
+<button class="tab" onclick="go(3, this)">Smoothie</button>
+<button class="tab" onclick="go(4, this)">Juice</button>
+<button class="tab" onclick="go(5, this)">Drinks</button>
+</nav>
+
+<div class="slider" id="slider">
+
+<!-- ABOUT -->
+<div class="page">
+  <div class="card">
+    <h2>About Sauber Café</h2>
+    <p>clean vibes, premium food, chill café experience ☕🔥</p>
+  </div>
+
+  <div class="card">
+    <h2>Location</h2>
+    <iframe src="https://www.google.com/maps?q=Sauber+Cafe+Phnom+Penh&output=embed"
+    width="100%" height="250" style="border:0;border-radius:12px;"></iframe>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
+    <p>015 558 787</p>
+    <a class="callbtn" href="tel:015558787">📞 Call Now</a>
+  </div>
+</div>
+
+<!-- FOOD -->
+<div class="page">
+  <div class="foodgrid">
+
+    <div class="foodcard"><img src="/mnt/data/10B0E5CE-D534-42A3-AC0F-5B008BCC53E2.jpeg"><div class="info"><span>Spaghetti</span><span>$7.10</span></div></div>
+
+    <div class="foodcard"><img src="/mnt/data/A79BEF8E-373E-4027-85C1-0959733B71B6.jpeg"><div class="info"><span>Grilled Chicken Burger</span><span>$3.85</span></div></div>
+
+    <div class="foodcard"><img src="/mnt/data/983A20FB-B65A-4CEC-A540-6CEA3D9720BB.png"><div class="info"><span>Steak</span><span>$15.29</span></div></div>
+
+    <div class="foodcard"><img src="/mnt/data/54602263-21B3-45B9-94CD-E2C197B7F5A9.jpeg"><div class="info"><span>Mixed Plate</span><span>$5.00</span></div></div>
+
+  </div>
+</div>
+
+<!-- FRAPPE -->
+<div class="page">
+  <div class="foodgrid">
+
+    <div class="foodcard">
+      <img src="/mnt/data/A79BEF8E-373E-4027-85C1-0959733B71B6.jpeg">
+      <div class="info"><span>Coffee Frappe</span><span>$3.25</span></div>
+    </div>
+
+    <div class="foodcard">
+      <img src="/mnt/data/10B0E5CE-D534-42A3-AC0F-5B008BCC53E2.jpeg">
+      <div class="info"><span>Mocha Frappe</span><span>$3.25</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SMOOTHIE -->
+<div class="page">
+  <div class="foodgrid">
+
+    <div class="foodcard">
+      <img src="/mnt/data/10B0E5CE-D534-42A3-AC0F-5B008BCC53E2.jpeg">
+      <div class="info"><span>Mango Smoothie</span><span>$3.00</span></div>
+    </div>
+
+    <div class="foodcard">
+      <img src="/mnt/data/983A20FB-B65A-4CEC-A540-6CEA3D9720BB.png">
+      <div class="info"><span>Banana Smoothie</span><span>$3.00</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JUICE -->
+<div class="page">
+  <div class="foodgrid">
+
+    <div class="foodcard">
+      <img src="/mnt/data/983A20FB-B65A-4CEC-A540-6CEA3D9720BB.png">
+      <div class="info"><span>Orange Juice</span><span>$3.00</span></div>
+    </div>
+
+    <div class="foodcard">
+      <img src="/mnt/data/54602263-21B3-45B9-94CD-E2C197B7F5A9.jpeg">
+      
+      /* NAV */
+nav {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav button {
+  padding: 10px 14px;
+  border: none;
+  background: #e7d3b6;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+nav button.activeTab {
+  background: #1f1a17;
+  color: white;
+}
+
+/* SLIDER */
+.slider {
+  display: flex;
+  width: 600%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.page {
+  width: 100%;
+  flex-shrink: 0;
+  padding: 15px;
+}
+
 /* CARD */
 .card {
   background: white;
