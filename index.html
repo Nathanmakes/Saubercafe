@@ -1,9 +1,3 @@
-Here is the completely revamped, fully-featured code for **Sauber Café**.
-I have meticulously included **every single item** from your list, updated the prices to match your exact specifications, and written distinct, appetizing descriptions for all of them. I also replaced the navigation with a sleek sidebar layout (or scrollable top bar on mobile) and used beautiful, item-specific imagery from Unsplash for each item.
-The Google Maps embed is set to point right to a premium spot in Phnom Penh, and the phone number is interactive with a styled "Call Now" button.
-### Complete HTML & CSS Code
-Copy and paste this into your file:
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +29,7 @@ body {
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
     url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1400&q=80")
     center/cover no-repeat;
-  height: 50vh;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +40,7 @@ body {
 }
 
 .hero h1 {
-  font-size: 56px;
+  font-size: 48px;
   margin: 0 0 10px 0;
   font-weight: 800;
   letter-spacing: 2px;
@@ -54,7 +48,7 @@ body {
 }
 
 .hero p {
-  font-size: 18px;
+  font-size: 16px;
   margin: 0;
   opacity: 0.9;
   font-weight: 300;
@@ -71,7 +65,7 @@ nav {
   top: 0;
   z-index: 100;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 nav::-webkit-scrollbar {
@@ -87,7 +81,7 @@ nav button {
   font-weight: bold;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 nav button.active, nav button:hover {
@@ -104,16 +98,10 @@ nav button.active, nav button:hover {
 
 .section {
   display: none;
-  animation: fadeIn 0.4s ease-in-out forwards;
 }
 
 .section.active {
   display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 h2 {
@@ -263,15 +251,15 @@ h2 {
         <div>
           <h3>Find & Contact Us</h3>
           <p class="location-text">
-            <strong>📍 Address:</strong> Street 242, Chaktomouk, Daun Penh, Phnom Penh, Cambodia<br>
+            <strong>📍 Address:</strong> Street 63 (Corner of St. 306), Boeung Keng Kang I (BKK1), Phnom Penh, Cambodia<br>
             <strong>📞 Phone:</strong> 015 558 787
           </p>
           <a href="tel:015558787" class="btn-call">📞 Call Now</a>
         </div>
         <div>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.770661603576!2d104.9213197!3d11.5682911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ea95723049b6b77%3A0x6796395b28d7764d!2sDaun%20Penh%2C%20Phnom%20Penh!5e0!3m2!1sen!2skh!4v1710000000000!5m2!1sen!2skh"
-            width="100%" height="220" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy">
+          <iframe 
+            src="http://googleusercontent.com/maps.google.com/3" 
+            width="100%" height="230" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy">
           </iframe>
         </div>
       </div>
@@ -408,411 +396,4 @@ h2 {
         </div>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Cheese Bacon Burger Combo</h3><span class="price">$9.35</span></div>
-          <p class="desc">Upgraded classic burger featuring crispy bacon slices. Comes paired directly with hot french fries.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1613514936561-9c8a91da3c14?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Australian Beef Lok Lak</h3><span class="price">$8.80</span></div>
-          <p class="desc">Tender wok-fried chunks of premium Australian beef served with a localized lime pepper dip.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1514944288352-fffac99f0bdf?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Smoked Duck Breast</h3><span class="price">$5.50</span></div>
-          <p class="desc">Succulent sliced roasted duck breast coated in clear honey sauce with roasted earthy beetroots.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="hot" class="section">
-    <h2>Hot Coffee & Comfort Drinks</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1510591509382-74346262656c?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Hot Espresso</h3><span class="price">$2.00</span></div>
-          <p class="desc">A single concentrated shot of coffee extracted perfectly under intense pressure from house-roasted beans.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Hot Double Espresso</h3><span class="price">$2.50</span></div>
-          <p class="desc">Twice the boldness and concentration for a complete caffeine punch to start your dynamic morning right.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1557006021-b85faa2bc5e2?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Hot Caramel Macchiato</h3><span class="price">$3.00</span></div>
-          <p class="desc">Steamed velvety milk marked with strong espresso and cross-hatched with rich buttery caramel syrup drizzle.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1561882468-9110e03e0f78?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Hot Latte</h3><span class="price">$2.50</span></div>
-          <p class="desc">A smooth combination of espresso shot with micro-foamed steamed milk for an elegantly light coffee brew.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Hot Cappuccino</h3><span class="price">$2.50</span></div>
-          <p class="desc">Balanced blend of rich espresso, steamed milk, and a luxurious top layer of thick cloud-like froth.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1551046598-a3a8838b4fa1?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Hot Americano</h3><span class="price">$2.50</span></div>
-          <p class="desc">A full-bodied, robust drink containing rich espresso shots extended beautifully with steaming hot pure water.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1505575967455-40e256f73376?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Hot Mocha</h3><span class="price">$2.50</span></div>
-          <p class="desc">An indulgent blend of premium chocolate syrup and full-bodied espresso topped with light steamed milk.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Hot Sauber Coffee</h3><span class="price">$2.50</span></div>
-          <p class="desc">Our carefully curated signature dark roast blend processed via a special house brewing technique.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1595434261119-911978e014bc?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Hot Vanilla Latte</h3><span class="price">$3.00</span></div>
-          <p class="desc">Sweet aromatic Madagascar vanilla bean syrup infused cleanly into our smooth classic espresso latte.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Hot Chocolate</h3><span class="price">$2.50</span></div>
-          <p class="desc">Silky warm beverage created from melted gourmet dark cocoa powder and rich sweetened whole milk.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Hot Fresh Milk</h3><span class="price">$3.00</span></div>
-          <p class="desc">Warm, comforting, gently steamed pure cow's dairy milk with a smooth frothy top texture.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="iced" class="section">
-    <h2>Chilled Iced Drinks</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Iced Americano</h3><span class="price">$2.75</span></div>
-          <p class="desc">Bold espresso poured generously over pristine ice cubes and pure cold water for maximum refreshment.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1553909489-ec17e621792d?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Iced Cappuccino</h3><span class="price">$2.75</span></div>
-          <p class="desc">Chilled bold coffee base topped delicately with a frothy cap of whipped cold milk foam layer.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Iced Sauber Coffee</h3><span class="price">$2.75</span></div>
-          <p class="desc">The signature cold house roast formulation served over ice blocks for deep structural coffee notes.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Iced Vanilla Latte</h3><span class="price">$3.00</span></div>
-          <p class="desc">Creamy espresso dairy milk combination containing cool sweet undertones of pure rich vanilla.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Iced Caramel Macchiato</h3><span class="price">$3.00</span></div>
-          <p class="desc">Layers of cool sweet milk, structured espresso, and ribbons of dark golden sweet caramel syrup.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1548365328-8c6db3220e4c?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Iced Chocolate</h3><span class="price">$3.00</span></div>
-          <p class="desc">Decadent premium cocoa mixture chilled beautifully and layered perfectly with smooth cream elements.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Iced Green Tea Latte</h3><span class="price">$3.00</span></div>
-          <p class="desc">Authentic Japanese matcha powder whisked with milk and poured cleanly over cold ice cubes.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Iced Honey Lemon Tea</h3><span class="price">$2.00</span></div>
-          <p class="desc">Crisp black tea brewed naturally, sweetened with organic pure honey and tangy fresh squeezed lemon.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fc9f?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Iced Latte (S)</h3><span class="price">$2.70</span></div>
-          <p class="desc">Our standardized compact size iced dairy latte offering a punchy, perfectly balanced milk-to-coffee ratio.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="frappe" class="section">
-    <h2>Ice Blended Frappes</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Coffee Frappe</h3><span class="price">$3.25</span></div>
-          <p class="desc">Smooth blended espresso and ice base garnished heavily with fresh whipped cream clouds.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Mocha Frappe</h3><span class="price">$3.25</span></div>
-          <p class="desc">Rich blend of dark cocoa powder and espresso shots mixed into a thick milkshake consistency.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Caramel Frappe</h3><span class="price">$3.25</span></div>
-          <p class="desc">Deep buttery sweet caramel elements blended together with ice crystals and premium espresso.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1594911774802-8822a707c975?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Vanilla Frappe</h3><span class="price">$3.25</span></div>
-          <p class="desc">Thick, frosty drink highlighting sweet vanilla bean paste whipped into cold whole dairy milk.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Chocolate Frappe</h3><span class="price">$3.25</span></div>
-          <p class="desc">A pure chocolate lover's dream blend made with premium cocoa cream base and dark shavings.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Green Tea Frappe</h3><span class="price">$3.25</span></div>
-          <p class="desc">Vibrant sweet ceremonial grade Japanese matcha blended uniformly into a silky cold dynamic dessert drink.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="smoothie" class="section">
-    <h2>Velvety Fruit Smoothies</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1505253213348-ce3e2c0b3a1a?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Vanilla Strawberry Smoothie</h3><span class="price">$3.00</span></div>
-          <p class="desc">Tart wild strawberries puréed beautifully with premium creamy rich sweet vanilla beans.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Banana Smoothie</h3><span class="price">$3.00</span></div>
-          <p class="desc">Rich, thick blend of ripe sweet bananas whipped together with sweet Greek yogurt and milk.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1623065422902-30a2ad4dc9b5?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Strawberry Smoothie</h3><span class="price">$3.00</span></div>
-          <p class="desc">Sweet sun-ripened strawberries emulsified together into a delightfully thick pink fruit smoothie.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Passion Smoothie</h3><span class="price">$3.00</span></div>
-          <p class="desc">Exotic, tropical passion fruit pulps blended into a silky, sweet, and distinctly tart ice beverage.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Mango & Passion Smoothie</h3><span class="price">$3.00</span></div>
-          <p class="desc">A beautiful tropical collision of sweet mango slices combined with tangy tropical passionfruit.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Avocado Smoothie</h3><span class="price">$3.00</span></div>
-          <p class="desc">Ultra-buttery, nutrient-dense fresh avocado whipped premiumly with sweet milk extract elements.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="juice" class="section">
-    <h2>100% Cold Pressed Fresh Juices</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1525385133512-2f3dad03f4c1?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Fresh Pineapple Juice</h3><span class="price">$3.00</span></div>
-          <p class="desc">Tropical sweet and acidic gold pineapple meat cold pressed completely with zero additives.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Fresh Apple Juice</h3><span class="price">$3.00</span></div>
-          <p class="desc">Crisp, naturally sweet red and green apples crushed cleanly into a bright morning beverage.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Fresh Watermelon Juice</h3><span class="price">$3.00</span></div>
-          <p class="desc">Incredibly hydrating, pure sweet red watermelon juice extracted perfectly to beat the heat.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1622484211148-717098f6da86?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Fresh Carrot Juice</h3><span class="price">$3.00</span></div>
-          <p class="desc">Earthy, sweet, and rich in vitamins—made daily from pure local premium grade carrots.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Fresh Orange Juice</h3><span class="price">$3.00</span></div>
-          <p class="desc">Freshly squeezed premium citrus oranges featuring natural sweet and pulpy refreshing profiles.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1595981266686-0cf387d0a608?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Mixed Carrot & Apple Juice</h3><span class="price">$3.00</span></div>
-          <p class="desc">A healthy internal balance blend fusing crunchy sweet apples together with crisp fresh carrots.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="soda" class="section">
-    <h2>Fizzy Italian Sodas</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Blue Curacao Soda</h3><span class="price">$2.75</span></div>
-          <p class="desc">Vibrant blue citrus syrup combined seamlessly with carbonated water and fresh lemon squeeze accents.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Strawberry Soda</h3><span class="price">$2.75</span></div>
-          <p class="desc">Sweet macerated strawberry syrup combined with lively fizzy club soda over heavy ice layers.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Passion Soda</h3><span class="price">$2.75</span></div>
-          <p class="desc">Tropical, fragrant tart passion fruit extract paired beautifully with bubbling sparkling water tonic.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Kiwi Soda</h3><span class="price">$2.75</span></div>
-          <p class="desc">Tangy and sweet green kiwi fruit syrup layered with sparkling refreshing soda structure.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1603186741830-3350a44284ab?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Blueberry Soda</h3><span class="price">$2.75</span></div>
-          <p class="desc">Deep dark berry syrup concentration mixed carefully with crisp carbonated soda fizz elements.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Blackberry Soda</h3><span class="price">$2.75</span></div>
-          <p class="desc">Robust complex blackberry fruit profile diluted perfectly using sparkling crisp mineral sodas.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="bev" class="section">
-    <h2>Standard Beverages</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Coca Cola</h3><span class="price">$1.50</span></div>
-          <p class="desc">The globally timeless classic carbonated cola recipe served completely chilled in a sleek can.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1608885898957-a599fb18ec3f?auto=format&fit=crop&w=800&q=80">
-        <div class="info">
-          <div class="title-price"><h3>Kulen Water</h3><span class="price">$1.00</span></div>
-          <p class="desc">Premium local natural Cambodian mineral water filtered perfectly for your absolute health.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<script>
-function show(id, btn) {
-  // Hide all sections
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  // Show target section
-  document.getElementById(id).classList.add('active');
-  // Handle active navigation state
-  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  
-  // Smooth scroll view window back to top of the specific active tab
-  window.scrollTo({top: 400, behavior: 'smooth'});
-}
-</script>
-
-</body>
-</html>
-
-```
+        <img src="
