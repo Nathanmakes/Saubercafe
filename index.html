@@ -3,209 +3,647 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sauber Café</title>
+<title>Sauber Café - Premium Menu</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f5f1ea;
+:root {
+  --primary: #1f1a17;
+  --accent: #e7d3b6;
+  --accent-dark: #c5a880;
+  --bg: #f5f1ea;
+  --card-bg: #ffffff;
+  --text-main: #2d2621;
+  --text-muted: #6b5e53;
 }
 
-.hero{
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+}
+
+/* Hero Section */
+.hero {
   background:
-    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
     url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1400&q=80")
     center/cover no-repeat;
-
-  height:45vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:48px;
-  font-weight:bold;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 0 20px;
 }
 
-nav{
-  display:flex;
-  gap:10px;
-  overflow-x:auto;
-  padding:10px;
-  background:white;
-  position:sticky;
-  top:0;
-  z-index:10;
+.hero h1 {
+  font-size: 56px;
+  margin: 0 0 10px 0;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-nav button{
-  padding:10px 14px;
-  border:none;
-  border-radius:20px;
-  background:#e7d3b6;
-  font-weight:bold;
-  cursor:pointer;
+.hero p {
+  font-size: 18px;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* Quick Jump Header Navigation */
+nav {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 15px 20px;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  scroll-behavior: smooth;
+}
+
+nav::-webkit-scrollbar {
+  display: none;
+}
+
+nav button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background: var(--bg);
+  color: var(--text-main);
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+nav button.active, nav button:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Containers */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section {
+  display: none;
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  font-size: 28px;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 8px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  color: var(--primary);
+}
+
+/* Grid layout for items */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Premium Card Layout */
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.title-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.title-price h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.price {
+  font-weight: 700;
+  color: #b37d4e;
+  font-size: 18px;
   white-space: nowrap;
 }
 
-nav button.active{
-  background:#1f1a17;
-  color:white;
+.desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
 }
 
-.section{display:none;padding:15px;}
-.section.active{display:block;}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:12px;
+/* About Section Styles */
+.about-box {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  margin-bottom: 30px;
 }
 
-.card{
-  background:white;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+.contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 20px;
 }
 
-.card img{
-  width:100%;
-  height:120px;
-  object-fit:cover;
+@media (max-width: 768px) {
+  .contact-row { grid-template-columns: 1fr; }
 }
 
-.info{
-  padding:10px;
-  font-size:13px;
+.btn-call {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+.btn-call:hover {
+  background: #332b27;
+}
+
+.location-text {
+  line-height: 1.6;
+  color: var(--text-muted);
 }
 </style>
 </head>
 
 <body>
 
-<div class="hero">sauber cafe ☕</div>
+<div class="hero">
+  <h1>Sauber Café ☕</h1>
+  <p>Premium Vibes & Culinary Perfection in Phnom Penh</p>
+</div>
 
 <nav>
-<button class="active" onclick="show('about',this)">About</button>
-<button onclick="show('food',this)">Food</button>
-<button onclick="show('hot',this)">Hot</button>
-<button onclick="show('iced',this)">Iced</button>
-<button onclick="show('frappe',this)">Frappe</button>
-<button onclick="show('smoothie',this)">Smoothie</button>
-<button onclick="show('juice',this)">Juice</button>
-<button onclick="show('bev',this)">Drinks</button>
+  <button class="active" onclick="show('about',this)">About & Contact</button>
+  <button onclick="show('food',this)">Recommended Food</button>
+  <button onclick="show('hot',this)">Hot Beverages</button>
+  <button onclick="show('iced',this)">Iced Beverages</button>
+  <button onclick="show('frappe',this)">Frappes</button>
+  <button onclick="show('smoothie',this)">Smoothies</button>
+  <button onclick="show('juice',this)">Fresh Juices</button>
+  <button onclick="show('soda',this)">Italian Sodas</button>
+  <button onclick="show('bev',this)">Soft Drinks</button>
 </nav>
 
-<div id="about" class="section active">
-<h2>Sauber Café</h2>
-<p>Premium café vibes in Phnom Penh ☕🔥</p>
+<div class="main-content">
 
-<iframe
-src="https://maps.google.com/maps?q=Phnom%20Penh&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="100%" height="200"
-style="border:0;border-radius:12px;"></iframe>
+  <div id="about" class="section active">
+    <div class="about-box">
+      <h2>Welcome to Sauber Café</h2>
+      <p style="font-size: 16px; line-height: 1.6;">Experience gourmet dining and expertly crafted coffee drinks right in the heart of the city. From rich espresso selections to premium Australian steaks and fresh seafood dishes, everything on our menu is assembled using top-tier ingredients.</p>
+      
+      <div class="contact-row">
+        <div>
+          <h3>Find & Contact Us</h3>
+          <p class="location-text">
+            <strong>📍 Address:</strong> Street 242, Chaktomouk, Daun Penh, Phnom Penh, Cambodia<br>
+            <strong>📞 Phone:</strong> 015 558 787
+          </p>
+          <a href="tel:015558787" class="btn-call">📞 Call Now</a>
+        </div>
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.770661603576!2d104.9213197!3d11.5682911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ea95723049b6b77%3A0x6796395b28d7764d!2sDaun%20Penh%2C%20Phnom%20Penh!5e0!3m2!1sen!2skh!4v1710000000000!5m2!1sen!2skh"
+            width="100%" height="220" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>📞 015 558 787</p>
-<a href="tel:015558787">Call Now</a>
-</div>
+  <div id="food" class="section">
+    <h2>Chef's Recommended Food</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Bolognese Spaghetti</h3><span class="price">$7.10</span></div>
+          <p class="desc">Al dente spaghetti tossed in a rich, slow-simmered savory minced beef and herb tomato sauce.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Grilled Salmon</h3><span class="price">$15.29</span></div>
+          <p class="desc">Perfectly seared premium salmon fillet served alongside crisp greens and custom house dressing.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Fish Bite</h3><span class="price">$3.55</span></div>
+          <p class="desc">Golden, crispy battered fish nuggets served with a creamy dipping sauce on the side.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Bread Chicken Burger</h3><span class="price">$3.55</span></div>
+          <p class="desc">Crispy breaded chicken cutlet layered with fresh lettuce and mayo inside toasted buns.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1598866539377-f999624aeefe?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Spaghetti Tomato Sauce</h3><span class="price">$3.00</span></div>
+          <p class="desc">Simple classic pasta cooked beautifully in an aromatic tangy and sweet Mediterranean tomato sauce.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Chicken Nuggets</h3><span class="price">$3.00</span></div>
+          <p class="desc">All-time favorite crispy white-meat chicken chunks fried to absolute golden perfection.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>French Fries</h3><span class="price">$2.37</span></div>
+          <p class="desc">Fluffy potato matchsticks deep-fried until wonderfully crunchy, lightly seasoned with sea salt.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1603046891744-1f76eb10aec1?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Bacon Avocado Bread</h3><span class="price">$5.32</span></div>
+          <p class="desc">Artisanal sliced toast loaded with freshly mashed avocado and crispy, sizzling savory bacon strips.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Avocado Smoked Salad</h3><span class="price">$6.60</span></div>
+          <p class="desc">Rich avocado and crisp artisanal greens matched with a sweet honey mustard dressing accent.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1610614819513-58e34989848b?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Grilled Chicken Burger</h3><span class="price">$3.85</span></div>
+          <p class="desc">Juicy flame-grilled chicken breast seasoned thoroughly and served with fresh veggie toppings.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Grilled Tenderloin Steak</h3><span class="price">$15.29</span></div>
+          <p class="desc">Premium melt-in-your-mouth cut of tenderloin steak grilled carefully to your absolute preference.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Caesar Salad</h3><span class="price">$4.75</span></div>
+          <p class="desc">Crisp romaine lettuce mixed thoroughly with garlic croutons, parmesan cheese, and creamy dressing.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Spaghetti Carbonara</h3><span class="price">$4.29</span></div>
+          <p class="desc">Creamy rich white sauce coat over noodles, topped with generous bacon chips and melted parmesan.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>English Breakfast</h3><span class="price">$10.65</span></div>
+          <p class="desc">Plentiful morning feast with sunny eggs, specialty sausages, beans, toast, and hot bacon strips.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Banger and Mash</h3><span class="price">$6.60</span></div>
+          <p class="desc">Gourmet British sausages over heavy mashed potatoes, drenched beautifully in a dark pepper sauce.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Avocado Smoked Salmon Salad</h3><span class="price">$17.75</span></div>
+          <p class="desc">Delicate ribbons of smoked salmon layered premiumly with ripe avocado and clean garden greens.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Crispy Cheese Potato Balls</h3><span class="price">$6.00</span></div>
+          <p class="desc">Mashed potato spheres stuffed heavily with mozzarella cheese and fried until ultra-stretchy inside.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Classic Cheese Burger</h3><span class="price">$7.15</span></div>
+          <p class="desc">Flame-broiled standard beef patty layered cleanly with cheddar cheese slices, pickles, and dynamic sauce.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Cheese Bacon Burger Combo</h3><span class="price">$9.35</span></div>
+          <p class="desc">Upgraded classic burger featuring crispy bacon slices. Comes paired directly with hot french fries.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1613514936561-9c8a91da3c14?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Australian Beef Lok Lak</h3><span class="price">$8.80</span></div>
+          <p class="desc">Tender wok-fried chunks of premium Australian beef served with a localized lime pepper dip.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1514944288352-fffac99f0bdf?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Smoked Duck Breast</h3><span class="price">$5.50</span></div>
+          <p class="desc">Succulent sliced roasted duck breast coated in clear honey sauce with roasted earthy beetroots.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div id="food" class="section">
-<div class="grid">
+  <div id="hot" class="section">
+    <h2>Hot Coffee & Comfort Drinks</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1510591509382-74346262656c?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Hot Espresso</h3><span class="price">$2.00</span></div>
+          <p class="desc">A single concentrated shot of coffee extracted perfectly under intense pressure from house-roasted beans.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Hot Double Espresso</h3><span class="price">$2.50</span></div>
+          <p class="desc">Twice the boldness and concentration for a complete caffeine punch to start your dynamic morning right.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1557006021-b85faa2bc5e2?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Hot Caramel Macchiato</h3><span class="price">$3.00</span></div>
+          <p class="desc">Steamed velvety milk marked with strong espresso and cross-hatched with rich buttery caramel syrup drizzle.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1561882468-9110e03e0f78?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Hot Latte</h3><span class="price">$2.50</span></div>
+          <p class="desc">A smooth combination of espresso shot with micro-foamed steamed milk for an elegantly light coffee brew.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Hot Cappuccino</h3><span class="price">$2.50</span></div>
+          <p class="desc">Balanced blend of rich espresso, steamed milk, and a luxurious top layer of thick cloud-like froth.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1551046598-a3a8838b4fa1?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Hot Americano</h3><span class="price">$2.50</span></div>
+          <p class="desc">A full-bodied, robust drink containing rich espresso shots extended beautifully with steaming hot pure water.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1505575967455-40e256f73376?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Hot Mocha</h3><span class="price">$2.50</span></div>
+          <p class="desc">An indulgent blend of premium chocolate syrup and full-bodied espresso topped with light steamed milk.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Hot Sauber Coffee</h3><span class="price">$2.50</span></div>
+          <p class="desc">Our carefully curated signature dark roast blend processed via a special house brewing technique.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1595434261119-911978e014bc?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Hot Vanilla Latte</h3><span class="price">$3.00</span></div>
+          <p class="desc">Sweet aromatic Madagascar vanilla bean syrup infused cleanly into our smooth classic espresso latte.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Hot Chocolate</h3><span class="price">$2.50</span></div>
+          <p class="desc">Silky warm beverage created from melted gourmet dark cocoa powder and rich sweetened whole milk.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Hot Fresh Milk</h3><span class="price">$3.00</span></div>
+          <p class="desc">Warm, comforting, gently steamed pure cow's dairy milk with a smooth frothy top texture.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="card"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80"><div class="info">Bolognese spaghetti $7.10</div></div>
+  <div id="iced" class="section">
+    <h2>Chilled Iced Drinks</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Iced Americano</h3><span class="price">$2.75</span></div>
+          <p class="desc">Bold espresso poured generously over pristine ice cubes and pure cold water for maximum refreshment.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1553909489-ec17e621792d?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Iced Cappuccino</h3><span class="price">$2.75</span></div>
+          <p class="desc">Chilled bold coffee base topped delicately with a frothy cap of whipped cold milk foam layer.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Iced Sauber Coffee</h3><span class="price">$2.75</span></div>
+          <p class="desc">The signature cold house roast formulation served over ice blocks for deep structural coffee notes.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Iced Vanilla Latte</h3><span class="price">$3.00</span></div>
+          <p class="desc">Creamy espresso dairy milk combination containing cool sweet undertones of pure rich vanilla.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Iced Caramel Macchiato</h3><span class="price">$3.00</span></div>
+          <p class="desc">Layers of cool sweet milk, structured espresso, and ribbons of dark golden sweet caramel syrup.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1548365328-8c6db3220e4c?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Iced Chocolate</h3><span class="price">$3.00</span></div>
+          <p class="desc">Decadent premium cocoa mixture chilled beautifully and layered perfectly with smooth cream elements.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Iced Green Tea Latte</h3><span class="price">$3.00</span></div>
+          <p class="desc">Authentic Japanese matcha powder whisked with milk and poured cleanly over cold ice cubes.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Iced Honey Lemon Tea</h3><span class="price">$2.00</span></div>
+          <p class="desc">Crisp black tea brewed naturally, sweetened with organic pure honey and tangy fresh squeezed lemon.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fc9f?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Iced Latte (S)</h3><span class="price">$2.70</span></div>
+          <p class="desc">Our standardized compact size iced dairy latte offering a punchy, perfectly balanced milk-to-coffee ratio.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="card"><img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80"><div class="info">Grilled salmon $15.29</div></div>
+  <div id="frappe" class="section">
+    <h2>Ice Blended Frappes</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Coffee Frappe</h3><span class="price">$3.25</span></div>
+          <p class="desc">Smooth blended espresso and ice base garnished heavily with fresh whipped cream clouds.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Mocha Frappe</h3><span class="price">$3.25</span></div>
+          <p class="desc">Rich blend of dark cocoa powder and espresso shots mixed into a thick milkshake consistency.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Caramel Frappe</h3><span class="price">$3.25</span></div>
+          <p class="desc">Deep buttery sweet caramel elements blended together with ice crystals and premium espresso.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1594911774802-8822a707c975?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Vanilla Frappe</h3><span class="price">$3.25</span></div>
+          <p class="desc">Thick, frosty drink highlighting sweet vanilla bean paste whipped into cold whole dairy milk.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Chocolate Frappe</h3><span class="price">$3.25</span></div>
+          <p class="desc">A pure chocolate lover's dream blend made with premium cocoa cream base and dark shavings.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Green Tea Frappe</h3><span class="price">$3.25</span></div>
+          <p class="desc">Vibrant sweet ceremonial grade Japanese matcha blended uniformly into a silky cold dynamic dessert drink.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="card"><img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?auto=format&fit=crop&w=800&q=80"><div class="info">Fish bite $3.55</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=800&q=80"><div class="info">Chicken burger $3.55</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=800&q=80"><div class="info">French fries $2.37</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80"><div class="info">Chicken nuggets $3</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1598866539377-f999624aeefe?auto=format&fit=crop&w=800&q=80"><div class="info">Tomato spaghetti $3</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1603046891744-1f76eb10aec1?auto=format&fit=crop&w=800&q=80"><div class="info">Bacon avocado bread $5.32</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80"><div class="info">Avocado salad $6.60</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1610614819513-58e34989848b?auto=format&fit=crop&w=800&q=80"><div class="info">Grilled chicken burger $3.85</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"><div class="info">Grilled steak $15.29</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=800&q=80"><div class="info">Caesar salad $4.75</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=800&q=80"><div class="info">Carbonara $4.29</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=800&q=80"><div class="info">English breakfast $10.65</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80"><div class="info">Cheese potato balls $6</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"><div class="info">Cheeseburger $7.15</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=80"><div class="info">Bacon burger $9.35</div></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1613514936561-9c8a91da3c14?auto=format&fit=crop&w=800&q=80"><div class="info">Lok Lak beef $8.80</div></div>
-
-</div>
-</div>
-
-<div id="hot" class="section">
-<div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80"><div class="info">Espresso $2</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1561882468-9110e03e0f78?auto=format&fit=crop&w=800&q=80"><div class="info">Latte $2.50</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1505575967455-40e256f73376?auto=format&fit=crop&w=800&q=80"><div class="info">Mocha $2.50</div></div>
-</div>
-</div>
-
-<div id="iced" class="section">
-<div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80"><div class="info">Iced americano $2.75</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80"><div class="info">Iced latte $3</div></div>
-</div>
-</div>
-
-<div id="frappe" class="section">
-<div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=80"><div class="info">Coffee frappe $3.25</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80"><div class="info">Chocolate frappe $3.25</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80"><div class="info">Oreo frappe $3.50</div></div>
-</div>
-</div>
-
-<div id="smoothie" class="section">
-<div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1505253213348-ce3e2c0b3a1a?auto=format&fit=crop&w=800&q=80"><div class="info">Strawberry smoothie $3</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80"><div class="info">Banana smoothie $3</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=800&q=80"><div class="info">Mango smoothie $3</div></div>
-</div>
-</div>
-
-<div id="juice" class="section">
-<div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80"><div class="info">Orange juice $3</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?auto=format&fit=crop&w=800&q=80"><div class="info">Apple juice $3</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1525385133512-2f3dad03f4c1?auto=format&fit=crop&w=800&q=80"><div class="info">Pineapple juice $3</div></div>
-</div>
-</div>
-
-<div id="bev" class="section">
-<div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=800&q=80"><div class="info">Coca cola $1.50</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=800&q=80"><div class="info">Water $1</div></div>
-</div>
-</div>
-
-<script>
-function show(id,btn){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-}
-</script>
-
-</body>
-</html>
+  <div id="smoothie" class="section">
+    <h2>Velvety Fruit Smoothies</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1505253213348-ce3e2c0b3a1a?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Vanilla Strawberry Smoothie</h3><span class="price">$3.00</span></div>
+          <p class="desc">Tart wild strawberries puréed beautifully with premium creamy rich sweet vanilla beans.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Banana Smoothie</h3><span class="price">$3.00</span></div>
+          <p class="desc">Rich, thick blend of ripe sweet bananas whipped together with sweet Greek yogurt and milk.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1623065422902-30a2ad4dc9b5?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <div class="title-price"><h3>Strawberry Smoothie</h3><span class="price">$3.00</span></div>
+          <p class="desc">Sweet sun-ripened strawberries emulsified together into a delightfully thick pink fruit
