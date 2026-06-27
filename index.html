@@ -6,470 +6,86 @@
 <title>Sauber Café</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f1ea;
-  overflow-x: hidden;
+body{
+  margin:0;
+  font-family:Arial;
+  background:#f5f1ea;
 }
 
 /* HERO */
-.hero {
-  background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+.hero{
+  background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
   url("https://images.unsplash.com/photo-1509042239860-f550ce710b93") center/cover;
-  height: 40vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-}
-
-/* HEADER */
-header {
-  background: #1f1a17;
-  color: white;
-  text-align: center;
-  padding: 12px;
+  height:35vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:36px;
+  font-weight:bold;
 }
 
 /* NAV */
-nav {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 10px;
-  background: white;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+nav{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:10px;
+  background:#fff;
+  position:sticky;
+  top:0;
 }
 
-nav button {
-  padding: 10px 14px;
-  border: none;
-  background: #e7d3b6;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
+nav button{
+  padding:10px 14px;
+  border:none;
+  border-radius:20px;
+  background:#e7d3b6;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-nav button.activeTab {
-  background: #1f1a17;
-  color: white;
+nav button.active{
+  background:#1f1a17;
+  color:white;
 }
 
-/* SLIDER */
-.slider {
-  display: flex;
-  width: 600%;
-  transition: transform 0.5s ease-in-out;
+/* SECTION */
+.section{
+  display:none;
+  padding:15px;
 }
 
-/* PAGE */
-.page {
-  width: 100%;
-  flex-shrink: 0;
-  padding: 15px;
+.section.active{
+  display:block;
 }
 
-/* CARD */
-.card {
-  background: white;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-/* ITEM (IMPORTANT - YOUR ORIGINAL STYLE) */
-.item {
-  background: white;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* CALL BUTTON */
-.callbtn {
-  display: block;
-  background: green;
-  color: white;
-  padding: 12px;
-  text-align: center;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-</style>
-</head>
-
-<body>
-
-<div class="hero">Sauber Café ☕</div>
-<header>premium café • phnom penh</header>
-
-<nav>
-<button class="tab activeTab" onclick="go(0)">About</button>
-<button class="tab" onclick="go(1)">Food</button>
-<button class="tab" onclick="go(2)">Frappe</button>
-<button class="tab" onclick="go(3)">Smoothie</button>
-<button class="tab" onclick="go(4)">Juice</button>
-<button class="tab" onclick="go(5)">Drinks</button>
-</nav>
-
-<div class="slider" id="slider">
-
-<!-- ABOUT -->
-<div class="page">
-  <div class="card">
-    <h2>About Sauber Café</h2>
-    <p>clean vibes, premium café experience ☕🔥</p>
-  </div>
-
-  <div class="card">
-    <h2>Location</h2>
-    <iframe src="https://www.google.com/maps?q=Sauber+Cafe+Phnom+Penh&output=embed"
-    width="100%" height="250" style="border:0;border-radius:12px;"></iframe>
-  </div>
-
-  <div class="card">
-    <h2>Contact</h2>
-    <p>015 558 787</p>
-    <a class="callbtn" href="tel:015558787">📞 Call Now</a>
-  </div>
-</div>
-
-<!-- FOOD (FULL RESTORED MENU) -->
-<div class="page">
-  <div class="item"><span>Spaghetti Bolognese</span><span>$7.10</span></div>
-  <div class="item"><span>Grilled Salmon</span><span>$15.29</span></div>
-  <div class="item"><span>Fish Bite</span><span>$3.55</span></div>
-  <div class="item"><span>Bread Chicken Burger</span><span>$3.55</span></div>
-  <div class="item"><span>French Fries</span><span>$2.37</span></div>
-  <div class="item"><span>Chicken Nuggets</span><span>$3.00</span></div>
-</div>
-
-<!-- FRAPPE -->
-<div class="page">
-  <div class="item"><span>Coffee Frappe</span><span>$3.25</span></div>
-  <div class="item"><span>Mocha Frappe</span><span>$3.25</span></div>
-  <div class="item"><span>Caramel Frappe</span><span>$3.25</span></div>
-</div>
-
-<!-- SMOOTHIE -->
-<div class="page">
-  <div class="item"><span>Banana Smoothie</span><span>$3.00</span></div>
-  <div class="item"><span>Mango Smoothie</span><span>$3.00</span></div>
-</div>
-
-<!-- JUICE -->
-<div class="page">
-  <div class="item"><span>Orange Juice</span><span>$3.00</span></div>
-  <div class="item"><span>Apple Juice</span><span>$3.00</span></div>
-</div>
-
-<!-- DRINKS -->
-<div class="page">
-  <div class="item"><span>Coca Cola</span><span>$1.50</span></div>
-  <div class="item"><span>Water</span><span>$1.00</span></div>
-</div>
-
-</div>
-
-<footer>© 2026 Sauber Café</footer>
-
-<script>
-let tabs = document.querySelectorAll(".tab");
-let slider = document.getElementById("slider");
-
-function go(index){
-  slider.style.transform = `translateX(-${index * 100}%)`;
-
-  tabs.forEach(t => t.classList.remove("activeTab"));
-  tabs[index].classList.add("activeTab");
-}
-</script>
-
-</body>
-</html>/* NAV */
-nav {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 10px;
-  background: white;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-nav button {
-  padding: 10px 14px;
-  border: none;
-  background: #e7d3b6;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  white-space: nowrap;
-}
-
-nav button.activeTab {
-  background: #1f1a17;
-  color: white;
-}
-
-/* SLIDER */
-.slider {
-  display: flex;
-  width: 600%;
-  transition: transform 0.5s ease-in-out;
-}
-
-.page {
-  width: 100%;
-  flex-shrink: 0;
-  padding: 15px;
-}
-
-/* CARD GRID */
-.foodgrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-}
-
-/* FOOD CARD */
-.foodcard {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-.foodcard img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-}
-
-.foodcard .info {
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-}
-
-/* ABOUT CARD */
-.card {
-  background: white;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-/* CALL */
-.callbtn {
-  display: block;
-  background: green;
-  color: white;
-  padding: 12px;
-  text-align: center;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-</style>
-</head>
-
-<body>
-
-<div class="hero">Sauber Café ☕</div>
-
-<header>premium café • phnom penh</header>
-
-<nav>
-<button class="tab activeTab" onclick="go(0, this)">About</button>
-<button class="tab" onclick="go(1, this)">Food</button>
-<button class="tab" onclick="go(2, this)">Frappe</button>
-<button class="tab" onclick="go(3, this)">Smoothie</button>
-<button class="tab" onclick="go(4, this)">Juice</button>
-<button class="tab" onclick="go(5, this)">Drinks</button>
-</nav>
-
-<div class="slider" id="slider">
-
-<!-- ABOUT -->
-<div class="page">
-  <div class="card">
-    <h2>About Sauber Café</h2>
-    <p>clean vibes, premium food, chill café experience ☕🔥</p>
-  </div>
-
-  <div class="card">
-    <h2>Location</h2>
-    <iframe src="https://www.google.com/maps?q=Sauber+Cafe+Phnom+Penh&output=embed"
-    width="100%" height="250" style="border:0;border-radius:12px;"></iframe>
-  </div>
-
-  <div class="card">
-    <h2>Contact</h2>
-    <p>015 558 787</p>
-    <a class="callbtn" href="tel:015558787">📞 Call Now</a>
-  </div>
-</div>
-
-<!-- FOOD -->
-<div class="page">
-  <div class="foodgrid">
-
-    <div class="foodcard"><img src="/mnt/data/10B0E5CE-D534-42A3-AC0F-5B008BCC53E2.jpeg"><div class="info"><span>Spaghetti</span><span>$7.10</span></div></div>
-
-    <div class="foodcard"><img src="/mnt/data/A79BEF8E-373E-4027-85C1-0959733B71B6.jpeg"><div class="info"><span>Grilled Chicken Burger</span><span>$3.85</span></div></div>
-
-    <div class="foodcard"><img src="/mnt/data/983A20FB-B65A-4CEC-A540-6CEA3D9720BB.png"><div class="info"><span>Steak</span><span>$15.29</span></div></div>
-
-    <div class="foodcard"><img src="/mnt/data/54602263-21B3-45B9-94CD-E2C197B7F5A9.jpeg"><div class="info"><span>Mixed Plate</span><span>$5.00</span></div></div>
-
-  </div>
-</div>
-
-<!-- FRAPPE -->
-<div class="page">
-  <div class="foodgrid">
-
-    <div class="foodcard">
-      <img src="/mnt/data/A79BEF8E-373E-4027-85C1-0959733B71B6.jpeg">
-      <div class="info"><span>Coffee Frappe</span><span>$3.25</span></div>
-    </div>
-
-    <div class="foodcard">
-      <img src="/mnt/data/10B0E5CE-D534-42A3-AC0F-5B008BCC53E2.jpeg">
-      <div class="info"><span>Mocha Frappe</span><span>$3.25</span></div>
-    </div>
-
-  </div>
-</div>
-
-<!-- SMOOTHIE -->
-<div class="page">
-  <div class="foodgrid">
-
-    <div class="foodcard">
-      <img src="/mnt/data/10B0E5CE-D534-42A3-AC0F-5B008BCC53E2.jpeg">
-      <div class="info"><span>Mango Smoothie</span><span>$3.00</span></div>
-    </div>
-
-    <div class="foodcard">
-      <img src="/mnt/data/983A20FB-B65A-4CEC-A540-6CEA3D9720BB.png">
-      <div class="info"><span>Banana Smoothie</span><span>$3.00</span></div>
-    </div>
-
-  </div>
-</div>
-
-<!-- JUICE -->
-<div class="page">
-  <div class="foodgrid">
-
-    <div class="foodcard">
-      <img src="/mnt/data/983A20FB-B65A-4CEC-A540-6CEA3D9720BB.png">
-      <div class="info"><span>Orange Juice</span><span>$3.00</span></div>
-    </div>
-
-    <div class="foodcard">
-      <img src="/mnt/data/54602263-21B3-45B9-94CD-E2C197B7F5A9.jpeg">
-      
-      /* NAV */
-nav {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 10px;
-  background: white;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-nav button {
-  padding: 10px 14px;
-  border: none;
-  background: #e7d3b6;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  white-space: nowrap;
-}
-
-nav button.activeTab {
-  background: #1f1a17;
-  color: white;
-}
-
-/* SLIDER */
-.slider {
-  display: flex;
-  width: 600%;
-  transition: transform 0.5s ease-in-out;
-}
-
-.page {
-  width: 100%;
-  flex-shrink: 0;
-  padding: 15px;
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
 }
 
 /* CARD */
-.card {
-  background: white;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+.card{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
-/* FOOD CARD */
-.foodgrid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
+.card img{
+  width:100%;
+  height:120px;
+  object-fit:cover;
 }
 
-.foodcard{
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-.foodcard img{
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-}
-
-.foodcard .info{
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-}
-
-/* BUTTON */
-.callbtn {
-  display: block;
-  background: green;
-  color: white;
-  padding: 12px;
-  text-align: center;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
+.card .info{
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+  font-weight:bold;
 }
 </style>
 </head>
@@ -478,289 +94,65 @@ nav button.activeTab {
 
 <div class="hero">Sauber Café ☕</div>
 
-<header>premium café • phnom penh</header>
-
 <nav>
-<button class="tab activeTab" onclick="go(0)">About</button>
-<button class="tab" onclick="go(1)">Food</button>
-<button class="tab" onclick="go(2)">Frappe</button>
-<button class="tab" onclick="go(3)">Smoothie</button>
-<button class="tab" onclick="go(4)">Juice</button>
-<button class="tab" onclick="go(5)">Drinks</button>
+<button class="tab active" onclick="show('food',this)">Food</button>
+<button class="tab" onclick="show('frappe',this)">Frappe</button>
+<button class="tab" onclick="show('smoothie',this)">Smoothie</button>
+<button class="tab" onclick="show('juice',this)">Juice</button>
+<button class="tab" onclick="show('drinks',this)">Drinks</button>
 </nav>
 
-<div class="slider" id="slider">
-
-<!-- ABOUT -->
-<div class="page">
-  <div class="card">
-    <h2>About Sauber Café</h2>
-    <p>clean vibes, premium food, chill aesthetic café experience ☕🔥</p>
-  </div>
-
-  <div class="card">
-    <h2>Location</h2>
-    <iframe
-      src="https://www.google.com/maps?q=Sauber+Cafe+Phnom+Penh&output=embed"
-      width="100%" height="250"
-      style="border:0;border-radius:12px;">
-    </iframe>
-  </div>
-
-  <div class="card">
-    <h2>Contact</h2>
-    <p>015 558 787</p>
-    <a class="callbtn" href="tel:015558787">📞 Call Now</a>
-  </div>
-</div>
-
 <!-- FOOD -->
-<div class="page">
-  <div class="foodgrid">
+<div id="food" class="section active">
+<div class="grid">
 
-    <div class="foodcard">
-      <img src="/mnt/data/10B0E5CE-D534-42A3-AC0F-5B008BCC53E2.jpeg">
-      <div class="info"><span>Spaghetti</span><span>$7.10</span></div>
-    </div>
+<div class="card"><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"><div class="info"><span>Spaghetti Bolognese</span><span>$7.10</span></div></div>
 
-    <div class="foodcard">
-      <img src="/mnt/data/A79BEF8E-373E-4027-85C1-0959733B71B6.jpeg">
-      <div class="info"><span>Burger Set</span><span>$3.55</span></div>
-    </div>
+<div class="card"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349"><div class="info"><span>Grilled Salmon</span><span>$15.29</span></div></div>
 
-    <div class="foodcard">
-      <img src="/mnt/data/983A20FB-B65A-4CEC-A540-6CEA3D9720BB.png">
-      <div class="info"><span>Steak Meal</span><span>$15.29</span></div>
-    </div>
+<div class="card"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e"><div class="info"><span>Fish Bite</span><span>$3.55</span></div></div>
 
-    <div class="foodcard">
-      <img src="/mnt/data/54602263-21B3-45B9-94CD-E2C197B7F5A9.jpeg">
-      <div class="info"><span>Mixed Menu</span><span>$5.00</span></div>
-    </div>
+<div class="card"><img src="https://images.unsplash.com/photo-1550317138-10000687a72b"><div class="info"><span>Chicken Burger</span><span>$3.85</span></div></div>
 
-  </div>
+<div class="card"><img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086"><div class="info"><span>French Fries</span><span>$2.37</span></div></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086"><div class="info"><span>Chicken Nuggets</span><span>$3.00</span></div></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1550547660-df3d8b2b9c3a"><div class="info"><span>Classic Cheese Burger</span><span>$7.15</span></div></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1600891964373-df0f9f0b1c0b"><div class="info"><span>Steak</span><span>$15.29</span></div></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d"><div class="info"><span>Caesar Salad</span><span>$4.75</span></div></div>
+
+</div>
 </div>
 
 <!-- FRAPPE -->
-<div class="page">
-  <div class="foodgrid">
-    <div class="foodcard">
-      <img src="/mnt/data/A79BEF8E-373E-4027-85C1-0959733B71B6.jpeg">
-      <div class="info"><span>Coffee Frappe</span><span>$3.25</span></div>
-    </div>
-  </div>
+<div id="frappe" class="section">
+<div class="grid">
+
+<div class="card"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93"><div class="info"><span>Coffee Frappe</span><span>$3.25</span></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348"><div class="info"><span>Mocha Frappe</span><span>$3.25</span></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"><div class="info"><span>Caramel Frappe</span><span>$3.25</span></div></div>
+
+</div>
 </div>
 
 <!-- SMOOTHIE -->
-<div class="page">
-  <div class="foodgrid">
-    <div class="foodcard">
-      <img src="/mnt/data/10B0E5CE-D534-42A3-AC0F-5B008BCC53E2.jpeg">
-      <div class="info"><span>Mango Smoothie</span><span>$3.00</span></div>
-    </div>
-  </div>
+<div id="smoothie" class="section">
+<div class="grid">
+
+<div class="card"><img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888"><div class="info"><span>Mango Smoothie</span><span>$3.00</span></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1553530666-8c0a8f6b4d19"><div class="info"><span>Banana Smoothie</span><span>$3.00</span></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1553530666-7c0f6a7c3c17"><div class="info"><span>Strawberry Smoothie</span><span>$3.00</span></div></div>
+
+</div>
 </div>
 
 <!-- JUICE -->
-<div class="page">
-  <div class="foodgrid">
-    <div class="foodcard">
-      <img src="/mnt/data/983A20FB-B65A-4CEC-A540-6CEA3D9720BB.png">
-      <div class="info"><span>Orange Juice</span><span>$3.00</span></div>
-    </div>
-  </div>
-</div>
+<div id="juice" class="section">
+<div class="grid">
 
-<!-- DRINKS -->
-<div class="page">
-  <div class="foodgrid">
-    <div class="foodcard">
-      <img src="/mnt/data/FC710B51-BF70-440C-BE88-D8751F4D7509.jpeg">
-      <div class="info"><span>Soda Drinks</span><span>$2.75</span></div>
-    </div>
-  </div>
-</div>
-
-</div>
-
-<script>
-let tabs = document.querySelectorAll(".tab");
-let slider = document.getElementById("slider");
-
-function go(index){
-  slider.style.transform = `trans
-  /* NAV */
-nav {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 10px;
-  background: white;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-nav button {
-  padding: 10px 14px;
-  border: none;
-  background: #e7d3b6;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-  white-space: nowrap;
-}
-
-nav button.activeTab {
-  background: #1f1a17;
-  color: white;
-}
-
-/* WRAPPER FOR SLIDING */
-.slider {
-  display: flex;
-  width: 600%;
-  transition: transform 0.5s ease-in-out;
-}
-
-/* EACH PAGE */
-.page {
-  width: 100%;
-  flex-shrink: 0;
-  padding: 15px;
-}
-
-/* CARD */
-.card {
-  background: white;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-/* ITEM */
-.item {
-  background: white;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* CALL BUTTON */
-.callbtn {
-  display: block;
-  background: green;
-  color: white;
-  padding: 12px;
-  text-align: center;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #1f1a17;
-  color: white;
-}
-</style>
-</head>
-
-<body>
-
-<div class="hero">Sauber Café ☕</div>
-
-<header>premium café • phnom penh</header>
-
-<nav>
-<button class="tab activeTab" onclick="go(0)">About</button>
-<button class="tab" onclick="go(1)">Food</button>
-<button class="tab" onclick="go(2)">Frappe</button>
-<button class="tab" onclick="go(3)">Smoothie</button>
-<button class="tab" onclick="go(4)">Juice</button>
-<button class="tab" onclick="go(5)">Drinks</button>
-</nav>
-
-<!-- SLIDER -->
-<div class="slider" id="slider">
-
-<!-- ABOUT -->
-<div class="page">
-  <div class="card">
-    <h2>About Sauber Café</h2>
-    <p>clean vibes, premium food, chill aesthetic café experience ☕🔥</p>
-  </div>
-
-  <div class="card">
-    <h2>Location</h2>
-    <iframe
-      src="https://www.google.com/maps?q=Phnom+Penh+Cambodia&output=embed"
-      width="100%" height="250" style="border:0;border-radius:12px;">
-    </iframe>
-  </div>
-
-  <div class="card">
-    <h2>Contact</h2>
-    <p>015 558 787</p>
-    <a class="callbtn" href="tel:015558787">📞 Call Now</a>
-  </div>
-</div>
-
-<!-- FOOD -->
-<div class="page">
-  <div class="item"><span>Spaghetti Bolognese</span><span>$7.10</span></div>
-  <div class="item"><span>Grilled Salmon</span><span>$15.29</span></div>
-  <div class="item"><span>Fish Bite</span><span>$3.55</span></div>
-  <div class="item"><span>Bread Chicken Burger</span><span>$3.55</span></div>
-  <div class="item"><span>French Fries</span><span>$2.37</span></div>
-  <div class="item"><span>Chicken Nuggets</span><span>$3.00</span></div>
-</div>
-
-<!-- FRAPPE -->
-<div class="page">
-  <div class="item"><span>Coffee Frappe</span><span>$3.25</span></div>
-  <div class="item"><span>Mocha Frappe</span><span>$3.25</span></div>
-  <div class="item"><span>Caramel Frappe</span><span>$3.25</span></div>
-</div>
-
-<!-- SMOOTHIE -->
-<div class="page">
-  <div class="item"><span>Banana Smoothie</span><span>$3.00</span></div>
-  <div class="item"><span>Mango Smoothie</span><span>$3.00</span></div>
-</div>
-
-<!-- JUICE -->
-<div class="page">
-  <div class="item"><span>Fresh Orange Juice</span><span>$3.00</span></div>
-  <div class="item"><span>Apple Juice</span><span>$3.00</span></div>
-</div>
-
-<!-- DRINKS -->
-<div class="page">
-  <div class="item"><span>Coca Cola</span><span>$1.50</span></div>
-  <div class="item"><span>Water</span><span>$1.00</span></div>
-</div>
-
-</div>
-
-<footer>© 2026 Sauber Café</footer>
-
-<script>
-let tabs = document.querySelectorAll(".tab");
-let slider = document.getElementById("slider");
-
-function go(index){
-  slider.style.transform = `translateX(-${index * 100}%)`;
-
-  tabs.forEach(t => t.classList.remove("activeTab"));
-  tabs[index].classList.add("activeTab");
-}
-</script>
-
-</body>
-</html>
+<div class="card"><img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba"><div class="info"><span>Orange Juice</span><span>$3.00</span></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce"><div class="info"><span>Apple Juice</span><span>$3.00</span></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d"><div class
